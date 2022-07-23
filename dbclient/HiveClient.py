@@ -123,10 +123,10 @@ class HiveClient(ClustersClient):
         :return: rest api response
         """
         # get file size in bytes
-        #updated_table_status = self.update_table_ddl(local_table_path, db_path)
+        updated_table_status = self.update_table_ddl(local_table_path, db_path)
         # update local table ddl to a new temp file with OPTIONS and TBLPROPERTIES removed from the DDL for delta tables
         if self.is_delta_table(local_table_path):
-            updated_table_status = self.update_table_ddl(local_table_path, db_path)
+            #updated_table_status = self.update_table_ddl(local_table_path, db_path)
             local_table_path = self.get_local_tmp_ddl_if_applicable(local_table_path)
 
         f_size_bytes = os.path.getsize(local_table_path)
